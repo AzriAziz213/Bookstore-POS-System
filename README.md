@@ -1,6 +1,6 @@
 # Bookstore-POS-System
 
-**+ Schema generation Query**
++ Schema generation Query
 
 ### customers
 
