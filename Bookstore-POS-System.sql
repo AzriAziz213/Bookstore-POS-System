@@ -29,7 +29,7 @@ CREATE TABLE invoices(
 CREATE TABLE invoice_lines(
 	id SERIAL PRIMARY KEY
 	, description VARCHAR(50) 
-  , unit_price DECIMAL(12,2)
+  	, unit_price DECIMAL(12,2)
 	, quantity INTEGER
 	, sub_total DECIMAL(12,2)
 	, tax_total DECIMAL(12,2)
@@ -43,8 +43,8 @@ CREATE TABLE invoice_lines(
 
 WITH customers_purchased AS(
 SELECT
-		t1.name
-		, SUM(t3.quantity) AS books_purchased
+	t1.name
+	, SUM(t3.quantity) AS books_purchased
 FROM customers AS t1
 INNER JOIN invoices AS t2 ON t1.id = t2.customer_id
 INNER JOIN invoice_lines AS t3 ON t2.id = t3.invoice_id
@@ -59,8 +59,8 @@ WHERE books_purchased > 5
 
 WITH customers_purchased AS(
 SELECT
-		t1.name
-		, SUM(t3.quantity) AS books_purchased
+	t1.name
+	, SUM(t3.quantity) AS books_purchased
 FROM customers AS t1
 FULL OUTER JOIN invoices AS t2 ON t1.id = t2.customer_id
 FULL OUTER JOIN invoice_lines AS t3 ON t2.id = t3.invoice_id
@@ -76,8 +76,8 @@ WHERE books_purchased IS NULL
 
 WITH customers_purchased AS(
 SELECT
-		t3.description
-		, t1.name
+	t3.description
+	, t1.name
 FROM customers AS t1
 INNER JOIN invoices AS t2 ON t1.id = t2.customer_id
 INNER JOIN invoice_lines AS t3 ON t2.id = t3.invoice_id
