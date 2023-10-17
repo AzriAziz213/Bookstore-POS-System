@@ -70,7 +70,6 @@ GROUP BY 1
 SELECT name
 FROM customers_purchased
 WHERE books_purchased IS NULL
-WHERE books_purchased IS NULL
 
 ### List of book purchased with the users
 
